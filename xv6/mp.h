@@ -1,8 +1,8 @@
 // See MultiProcessor Specification Version 1.[14]
 
 struct mp {             // floating pointer
-  uchar signature[4];           // "_MP_"
-  uint physaddr;                // phys addr of MP config table (use integer)
+  uchar signature[4];
+  uint physaddr;
   uchar length;                 // 1
   uchar specrev;                // [14]
   uchar checksum;               // all bytes must add up to 0
@@ -16,11 +16,11 @@ struct mpconf {         // configuration table header
   ushort length;                // total table length
   uchar version;                // [14]
   uchar checksum;               // all bytes must add up to 0
-  uchar product[20];            // product id
-  uint oemtable;               // OEM table pointer (use integer)
+  uchar product[20];
+  uint oemtable;
   ushort oemlength;             // OEM table length
   ushort entry;                 // entry count
-  uint lapicaddr;              // address of local APIC (use integer)
+  uint lapicaddr;
   ushort xlength;               // extended table length
   uchar xchecksum;              // extended table checksum
   uchar reserved;
@@ -42,7 +42,7 @@ struct mpioapic {       // I/O APIC table entry
   uchar apicno;                 // I/O APIC id
   uchar version;                // I/O APIC version
   uchar flags;                  // I/O APIC flags
-  uint addr;                  // I/O APIC address (use integer)
+  uint addr;
 };
 
 // Table entry types
