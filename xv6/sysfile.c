@@ -166,7 +166,6 @@ bad:
   return -1;
 }
 
-// Create a symbolic link: linkpath -> target
 int
 sys_symlink(void)
 {
@@ -182,7 +181,6 @@ sys_symlink(void)
     return -1;
   }
 
-  // write target string (including NUL) into the inode
   if(writei(ip, target, 0, strlen(target) + 1) != strlen(target) + 1){
     iunlockput(ip);
     end_op();
@@ -339,7 +337,6 @@ sys_open(void)
     }
     ilock(ip);
 
-    // Follow symlinks up to depth limit
     while(ip->type == T_SYMLINK){
       char target[128];
       int n = readi(ip, target, 0, sizeof(target)-1);
